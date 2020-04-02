@@ -1,4 +1,4 @@
 class DomainNamingRegistry < ApplicationRecord
-  validates :ip, format: { with: /((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(\.|$)){4}/, message: "Bad Format" }
-  validates :hostnames, length: { minimum: 1 }
+  validates :ip, presence: true, format: { with: /(?:[0-9]{1,3}\.){3}[0-9]{1,3}/, message: "Bad Format" }
+  validates :hostnames, presence: true, length: { minimum: 1, message: "Should have a least one hostname" }
 end

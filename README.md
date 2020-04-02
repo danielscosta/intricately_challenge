@@ -13,18 +13,19 @@ This is a ruby on rails app for the Intricately Challanged API.
 
 2. In this repository create and run the containers:
    
-   `docker-compose up`
+   `docker-compose up --build app`
 
     It will create a postgres container database and ruby container for install the ruby dependencies and start rails server on port 3000.
 
 3. Setup database: 
 
-    `
-    `
+    `docker-compose run app bundle exec rake db:setup`
 
 4. Migrate database:
 
     `docker-compose run app bundle exec rails db:migrate`
+
+    `docker-compose run test bundle exec rails db:migrate`
 
 5. Get a bash into app container, run: 
 
@@ -34,4 +35,4 @@ This is a ruby on rails app for the Intricately Challanged API.
 
 1. Tests are stored in the `spec` folder. To run them execute:
 
-    `docker-compose run app bundle exec rspec`
+    `docker-compose up --build test`
