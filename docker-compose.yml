@@ -1,0 +1,22 @@
+version: '3.5'
+
+services:
+  db:
+    image: postgres
+    ports:
+      - "5403:5432"
+    environment: 
+      - POSTGRES_HOST_AUTH_METHOD=trust
+      - POSTGRES_USER=intricately_challenge
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile-dev
+    ports:
+      - "3000:3000"
+    environment:
+      - RAILS_ENV=development
+      - PG_HOST=db
+    depends_on:
+      - db

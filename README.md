@@ -1,24 +1,37 @@
-# README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Intricately Challanged
 
-Things you may want to cover:
+This is a ruby on rails app for the Intricately Challanged API.
 
-* Ruby version
+[Docker](https://www.docker.com/community-edition) is required.
 
-* System dependencies
+### Development instructions:
 
-* Configuration
+1. Clone this repository (you need [git](https://git-scm.com/) installed):
+  
+    `git clone git@github.com:danielscosta/intricately_challenge.git`
 
-* Database creation
+2. In this repository create and run the containers:
+   
+   `docker-compose up`
 
-* Database initialization
+    It will create a postgres container database and ruby container for install the ruby dependencies and start rails server on port 3000.
 
-* How to run the test suite
+3. Setup database: 
 
-* Services (job queues, cache servers, search engines, etc.)
+    `
+    `
 
-* Deployment instructions
+4. Migrate database:
 
-* ...
+    `docker-compose run app bundle exec rails db:migrate`
+
+5. Get a bash into app container, run: 
+
+    `docker-compose run app bash`
+
+### Running tests:
+
+1. Tests are stored in the `spec` folder. To run them execute:
+
+    `docker-compose run app bundle exec rspec`
