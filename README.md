@@ -36,3 +36,13 @@ This is a ruby on rails app for the Intricately Challanged API.
 1. Tests are stored in the `spec` folder. To run them execute:
 
     `docker-compose up --build test`
+
+### Curl:
+
+1. To add data:
+
+    `curl -d '{"ip": "127.0.0.1", "hostnames_attributes": ["intricately.com"]}' -H 'Content-Type: application/json' http://localhost:3000/domain_naming_registries`
+
+2. To get data:
+
+    `curl -X GET -d 'page=1&included[]=intricately.com&excluded[]=intricately2.com' http://localhost:3000/domain_naming_registries`
